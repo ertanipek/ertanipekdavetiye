@@ -155,10 +155,10 @@
 
     .top-title { font-family: 'Great Vibes', cursive; font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 10px; opacity: 0; transform: translateY(20px) translateZ(40px); }
 
-    .name-wrapper { display: flex; justify-content: center; overflow: hidden; width: 100%; }
-    .name-letter { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 700; line-height: 1.1; opacity: 0; transform: translateY(50px) rotateX(-90deg); transform-origin: bottom; letter-spacing: 2px; }
-    .amp { font-family: 'Great Vibes', cursive; font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 5px 0; opacity: 0; transform: scale(0); }
-    .divider { width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-2), transparent); margin: 20px auto; }
+    .name-wrapper { display: flex; justify-content: center; width: 100%; transform: translateZ(50px); }
+    .name-letter { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 700; line-height: 1.1; opacity: 0; transform: translateY(30px); letter-spacing: 2px; }
+    .amp { font-family: 'Great Vibes', cursive; font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 5px 0; opacity: 0; transform: scale(0) translateZ(50px); }
+    .divider { width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-2), transparent); margin: 20px auto; transform: translateZ(30px); }
 
     /* Abstract Card SVGs */
     .float-svg { position: absolute; pointer-events: none; opacity: 0; }
@@ -212,7 +212,7 @@
 
     /* Entrance Animations */
     .animate-in .top-title { animation: fadeUp 0.8s 0s forwards cubic-bezier(0.1, 0.9, 0.2, 1); }
-    .animate-in .name-letter { animation: flipUp 0.6s forwards cubic-bezier(0.1, 0.9, 0.2, 1); }
+    .animate-in .name-letter { animation: fadeUpLetter 0.6s forwards cubic-bezier(0.1, 0.9, 0.2, 1); }
     .animate-in .amp { animation: popIn 0.8s 1s forwards cubic-bezier(0.1, 0.9, 0.2, 1); }
     .animate-in .divider { animation: expandLine 1s 1.5s forwards ease-in-out; }
     .animate-in .families { animation: fadeUp 0.8s 1.7s forwards; }
@@ -223,9 +223,9 @@
     .animate-in .btn-group { animation: fadeUp 0.8s 2.7s forwards; }
     .animate-in .float-svg { animation: fadeIn 1.5s 0.5s forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0) translateZ(40px); } }
-    @keyframes flipUp { to { opacity: 1; transform: translateY(0) rotateX(0) translateZ(50px); } }
+    @keyframes fadeUpLetter { to { opacity: 1; transform: translateY(0); } }
     @keyframes popIn { to { opacity: 1; transform: scale(1) translateZ(50px); } }
-    @keyframes expandLine { to { width: 80%; } }
+    @keyframes expandLine { to { width: 80%; transform: translateZ(30px); } }
     @keyframes fadeIn { to { opacity: 1; } }
 
     /* Music Toggle */
@@ -348,10 +348,10 @@
 
       <div class="parallax-layer top-title gold-text">Nişanlanıyoruz</div>
       
-      <div class="name-wrapper parallax-layer-front" id="name1"></div>
-      <div class="amp gold-text parallax-layer">&</div>
-      <div class="name-wrapper parallax-layer-front" id="name2"></div>
-      <div class="divider parallax-layer"></div>
+      <div class="name-wrapper" id="name1"></div>
+      <div class="amp gold-text">&</div>
+      <div class="name-wrapper" id="name2"></div>
+      <div class="divider"></div>
       
       <div class="families parallax-layer">
         Tuzluoğlu ve Çobanoğluları
