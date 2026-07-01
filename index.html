@@ -403,15 +403,10 @@
   <script>
     // --- Envelope Interaction ---
     document.getElementById('waxSeal').addEventListener('click', function() {
-      
-      if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission().then(permissionState => {
-          if (permissionState === 'granted') { window.addEventListener('deviceorientation', handleOrientation); }
-        }).catch(console.error);
-      } else {
-        window.addEventListener('deviceorientation', handleOrientation);
+      if (isPlayerReady && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+        ytPlayer.playVideo();
+        setTimeout(() => { document.getElementById('musicToggle').classList.add('visible'); }, 2000);
       }
-
       const envelope = document.getElementById('envelopeWrapper');
       const scene = document.getElementById('scene');
       
@@ -420,11 +415,6 @@
       setTimeout(() => {
         scene.classList.add('visible');
         envelope.classList.add('fade-out');
-        
-        if (isPlayerReady && typeof ytPlayer.playVideo === 'function') {
-          ytPlayer.playVideo();
-          document.getElementById('musicToggle').classList.add('visible');
-        }
         
         setTimeout(() => {
           document.getElementById('card').classList.add('animate-in');
@@ -470,41 +460,6 @@
     }
     createLetterSpans(name1Text, document.getElementById('name1'), 0.3);
     createLetterSpans(name2Text, document.getElementById('name2'), 1.1);
-
-    // --- Interactive 3D Parallax Tilt ---
-    const scene = document.getElementById('scene');
-    let targetX = 0, targetY = 0;
-    let currentX = 0, currentY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-      if (!scene.classList.contains('visible')) return;
-      const x = (window.innerWidth / 2 - e.clientX) / 30;
-      const y = (window.innerHeight / 2 - e.clientY) / 30;
-      targetX = x; targetY = y;
-    });
-
-    document.addEventListener('mouseleave', () => { targetX = 0; targetY = 0; });
-
-    function handleOrientation(e) {
-      if (!scene.classList.contains('visible')) return;
-      let gamma = e.gamma;
-      let beta = e.beta;
-      
-      if(gamma === null || beta === null) return;
-      if (gamma > 35) gamma = 35;
-      if (gamma < -35) gamma = -35;
-      
-      targetX = -gamma / 1.5;
-      targetY = -(beta - 40) / 2;
-    }
-
-    function render() {
-      currentX += (targetX - currentX) * 0.1;
-      currentY += (targetY - currentY) * 0.1;
-      scene.style.transform = `rotateY(${currentX}deg) rotateX(${-currentY}deg)`;
-      requestAnimationFrame(render);
-    }
-    render();
 
     // --- Dynamic Canvas Particle Sparkles ---
     const canvas = document.getElementById('bg-canvas');
