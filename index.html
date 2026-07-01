@@ -24,7 +24,8 @@
     
     body {
       background-color: var(--bg-light); font-family: 'Montserrat', sans-serif;
-      min-height: 100dvh; display: flex; justify-content: center; align-items: center;
+      height: 100dvh; width: 100vw; margin: 0; padding: 0;
+      display: flex; justify-content: center; align-items: center;
       overflow: hidden; perspective: 1200px;
     }
 
@@ -266,7 +267,7 @@
   <div style="position:absolute; top:-9999px; left:-9999px; opacity:0; pointer-events:none;">
     <div id="yt-player"></div>
   </div>
-  <div class="music-toggle" id="musicToggle">
+  <div class="music-toggle muted" id="musicToggle">
     <svg viewBox="0 0 24 24" fill="var(--gold-4)" width="20" height="20">
       <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
     </svg>
@@ -526,6 +527,20 @@
       else { ytPlayer.mute(); musicToggle.classList.add('muted'); }
       isMuted = !isMuted;
     });
+
+    // --- BYPASS ENVELOPE (User Request) ---
+    // Kodlar silinmedi, sadece gizlendi. Davetiye direkt açılıyor.
+    document.getElementById('envelopeWrapper').style.display = 'none';
+    document.getElementById('scene').classList.add('visible');
+    
+    setTimeout(() => {
+      document.getElementById('card').classList.add('animate-in');
+    }, 100);
+    
+    // Müzik butonu otomatik görünsün (Tarayıcı otomatik müziği engellediği için kapalı başlar)
+    setTimeout(() => {
+      document.getElementById('musicToggle').classList.add('visible');
+    }, 1000);
 
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
