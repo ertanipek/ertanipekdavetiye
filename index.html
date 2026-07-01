@@ -137,7 +137,7 @@
     .card {
       position: relative; width: 100%;
       background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 20px; padding: 40px 20px;
+      border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 20px; padding: 25px 20px;
       box-shadow: 0 30px 60px rgba(0,0,0,0.08), inset 0 0 40px rgba(212, 175, 55, 0.05);
       display: flex; flex-direction: column; align-items: center; text-align: center; 
       transform-style: preserve-3d; overflow: hidden;
@@ -168,8 +168,8 @@
 
     .name-wrapper { display: flex; justify-content: center; width: 100%; transform: translateZ(50px); }
     .name-letter { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 10vw, 4rem); font-weight: 700; line-height: 1.1; opacity: 0; transform: translateY(30px); letter-spacing: 2px; }
-    .amp { font-family: 'Great Vibes', cursive; font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 5px 0; opacity: 0; transform: scale(0) translateZ(50px); }
-    .divider { width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-2), transparent); margin: 20px auto; transform: translateZ(30px); }
+    .amp { font-family: 'Great Vibes', cursive; font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 0; opacity: 0; transform: scale(0) translateZ(50px); }
+    .divider { width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-2), transparent); margin: 15px auto; transform: translateZ(30px); }
 
     /* Abstract Card SVGs */
     .float-svg { position: absolute; pointer-events: none; opacity: 0; }
@@ -188,16 +188,16 @@
     .dh-time { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; color: var(--gold-4); letter-spacing: 2px; margin-top: 4px; }
 
     /* Countdown */
-    .countdown { display: flex; gap: 10px; margin-bottom: 25px; opacity: 0; }
+    .countdown { display: flex; gap: 10px; margin-bottom: 15px; opacity: 0; }
     .time-box { display: flex; flex-direction: column; align-items: center; background: rgba(212, 175, 55, 0.05); border: 1px solid rgba(212, 175, 55, 0.2); padding: 8px 12px; border-radius: 8px; min-width: 55px; }
     .time-box span { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold-2); }
     .time-box small { font-size: 0.5rem; letter-spacing: 1px; color: var(--text-dark); margin-top: 2px; }
 
-    .msg { font-size: clamp(0.7rem, 2.5vw, 0.85rem); line-height: 1.8; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 25px; text-transform: uppercase; opacity: 0; padding: 0 10px; }
-    .address { font-size: clamp(0.65rem, 2vw, 0.8rem); line-height: 1.8; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 25px; font-weight: 500; opacity: 0; }
+    .msg { font-size: clamp(0.7rem, 2.5vw, 0.85rem); line-height: 1.8; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 15px; text-transform: uppercase; opacity: 0; padding: 0 10px; }
+    .address { font-size: clamp(0.65rem, 2vw, 0.8rem); line-height: 1.8; letter-spacing: 1px; color: var(--text-dark); margin-bottom: 15px; font-weight: 500; opacity: 0; }
 
     /* Button Group */
-    .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; opacity: 0; transform: translateZ(50px); margin-top: 10px; margin-bottom: 20px; }
+    .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; opacity: 0; transform: translateZ(50px); margin-top: 10px; margin-bottom: 10px; }
     .map-btn {
       position: relative; display: inline-flex; align-items: center; padding: 12px 20px; background: transparent;
       border: 1px solid var(--gold-2); color: var(--gold-4); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
