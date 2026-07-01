@@ -21,7 +21,7 @@
     
     html, body {
       margin: 0; padding: 0; width: 100%; height: 100%;
-      overflow: hidden; overscroll-behavior-y: none;
+      overflow: hidden; overscroll-behavior: none; touch-action: none;
     }
     body {
       background-color: var(--bg-light); font-family: 'Montserrat', sans-serif;
@@ -140,8 +140,7 @@
       border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 20px; padding: 40px 20px;
       box-shadow: 0 30px 60px rgba(0,0,0,0.08), inset 0 0 40px rgba(212, 175, 55, 0.05);
       display: flex; flex-direction: column; align-items: center; text-align: center; 
-      transform-style: preserve-3d; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain; /* Chrome pull-to-refresh engeli */
+      transform-style: preserve-3d; overflow: hidden;
       transform: translateY(120px); transition: transform 1.2s cubic-bezier(0.1, 0.9, 0.2, 1);
       will-change: transform;
     }
@@ -544,13 +543,9 @@
       document.getElementById('musicToggle').classList.add('visible');
     }, 1000);
 
-    // --- APP-LIKE SCROLL LOCK (Android Chrome Fix) ---
-    // Ekrandaki boşluklara dokunulduğunda Chrome'un sekmeyi aşağı çekmesini (yenilemesini) veya kaymasını tamamen kilitler
-    document.addEventListener('touchmove', function(e) {
-      if (!e.target.closest('.card')) {
-        e.preventDefault();
-      }
-    }, { passive: false });
+    // --- NÜKLEER KİLİT ---
+    // Hiçbir yazının veya çerçevenin kaymasına hiçbir koşulda izin vermez. Ekranda her şey beton gibi sabit kalır.
+    document.addEventListener('touchmove', function(e) { e.preventDefault(); }, { passive: false });
 
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
